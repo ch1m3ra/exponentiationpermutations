@@ -21,19 +21,19 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
     val result = HashMap[Int, Int]()
     val cubedValue = BigDecimal(base).pow(exponent).toBigInt.toString
 
-	for(permutation <- cubedValue.permutations) {
-	  // Ignore all strings that start with '0'
-	  if(permutation.head != '0') {
-		val testResult = rootFunction(BigInt(permutation).toDouble)
-		val testInt = testResult.intValue
+    for(permutation <- cubedValue.permutations) {
+      // Ignore all strings that start with '0'
+      if(permutation.head != '0') {
+        val testResult = rootFunction(BigInt(permutation).toDouble)
+        val testInt = testResult.intValue
 
-		if(testResult - testInt == 0.00) {
-		  result.get(testInt) match {
-		    case Some(count) => result.put(testInt, count + 1)
-		    case None => result.put(testInt, 1)
-	}}}}
+        if(testResult - testInt == 0.00) {
+          result.get(testInt) match {
+            case Some(count) => result.put(testInt, count + 1)
+            case None => result.put(testInt, 1)
+    }}}}
 
-	result.keys.toArray.sorted
+    result.keys.toArray.sorted
   }
 
   /** finds the smallest root which has N permutations of the exponentiation whose root 
@@ -50,23 +50,23 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
    * @sideEffects : None
    */
   def findSmallestRootWithNPermutations(permutationsNeeded: Int, exactMatch: Boolean, startingValue: Int = 1, maxIterations: Int = 10000): Option[Array[Int]] = {
-	def compareEquals(testValue: Int) = permutationsNeeded == testValue
-	def compareAtLeast(testValue: Int) = permutationsNeeded <= testValue
-	  
-	/*
-	 * Partial application to allow testing for an exact number of matches or at least n matches without having to perform 
-	 * the decision every loop
-	 */
-	val test = exactMatch match {
-	  case true => compareEquals _
-	  case false => compareAtLeast _
-	}
+    def compareEquals(testValue: Int) = permutationsNeeded == testValue
+    def compareAtLeast(testValue: Int) = permutationsNeeded <= testValue
+      
+    /*
+     * Partial application to allow testing for an exact number of matches or at least n matches without having to perform 
+     * the decision every loop
+     */
+    val test = exactMatch match {
+      case true => compareEquals _
+      case false => compareAtLeast _
+    }
     
     for(offset <- 0 to maxIterations) {
-	  val resultReturned = findAllRootPermutations(startingValue + offset)
-	  if(test(resultReturned.length)) {
-		return Some(resultReturned)
-	}}
+      val resultReturned = findAllRootPermutations(startingValue + offset)
+      if(test(resultReturned.length)) {
+        return Some(resultReturned)
+    }}
 
     None
   }
