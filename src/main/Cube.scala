@@ -40,9 +40,9 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
    *  	results in whole numbers.
    * 
    * @param : permutationsNeeded is how many permutations are needed.
-   * @param	 : exactMatch if true then the function will only return if permutations
+   * @param : exactMatch if true then the function will only return if permutations
    * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
-   * @param	 : startingValue to start checking from.
+   * @param : startingValue to start checking from.
    * @param : maxIterations to check.
    * @return : Option[List[Int]] if conditions were satisfied before maxIterations were exceeded
    * 	then a List[Int] is returned or else None
@@ -75,10 +75,10 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
    *  	results in whole numbers.
    * 
    * @param : permutationsNeeded is how many permutations are needed.
-   * @param	 : exactMatch if true then the function will only return if permutations
+   * @param : exactMatch if true then the function will only return if permutations
    * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
-   * @param	 : startingValue to start checking from.
-   * @param	 : maxIterations to check.
+   * @param : startingValue to start checking from.
+   * @param : maxIterations to check.
    * @return : Option[BigInt] if conditions were satisfied before maxIterations were exceeded
    * 	then a BigInt is returned or else None
    * @exceptions : None
