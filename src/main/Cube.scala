@@ -37,15 +37,15 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
   }
 
   /** finds the smallest root which has N permutations of the exponentiation whose root 
-   *  	results in whole numbers.
+   *    results in whole numbers.
    * 
    * @param : permutationsNeeded is how many permutations are needed.
    * @param : exactMatch if true then the function will only return if permutations
-   * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
+   *   found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
    * @param : startingValue to start checking from.
    * @param : maxIterations to check.
    * @return : Option[List[Int]] if conditions were satisfied before maxIterations were exceeded
-   * 	then a List[Int] is returned or else None
+   *   then a List[Int] is returned or else None
    * @exceptions : None
    * @sideEffects : None
    */
@@ -72,15 +72,15 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
   }
   
   /** finds the smallest exponentiation which has N permutations of the exponentiation whose root 
-   *  	results in whole numbers.
+   *    results in whole numbers.
    * 
    * @param : permutationsNeeded is how many permutations are needed.
    * @param : exactMatch if true then the function will only return if permutations
-   * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
+   *   found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
    * @param : startingValue to start checking from.
    * @param : maxIterations to check.
    * @return : Option[BigInt] if conditions were satisfied before maxIterations were exceeded
-   * 	then a BigInt is returned or else None
+   *   then a BigInt is returned or else None
    * @exceptions : None
    * @sideEffects : None
    */
@@ -96,14 +96,14 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
 object Cube extends Root(3, math.cbrt)
 
 /** Inferences:
- *  	+ Duplicate exponentiations do not count towards the goal.
- *   	+ Exponentiations with leading zeros are discarded.
+ *    + Duplicate exponentiations do not count towards the goal.
+ *    + Exponentiations with leading zeros are discarded.
  *    
  *  Possible speed improvements:
- * 		+ See if it is possible to leverage the fact that we need whole number roots. Maybe using Binary Search.
- *  	+ If there is a lot of RAM we can store the permutations of cubed value then check to see if it is 
- *   		faster to generate all the permutations first in a HashMap.
- *   	+ Utilize parallelization
+ *    + See if it is possible to leverage the fact that we need whole number roots. Maybe using Binary Search.
+ *    + If there is a lot of RAM we can store the permutations of cubed value then check to see if it is 
+ *        faster to generate all the permutations first in a HashMap.
+ *    + Utilize parallelization
  */
 object Run extends App {
   println("---- 3 permutations ----")
