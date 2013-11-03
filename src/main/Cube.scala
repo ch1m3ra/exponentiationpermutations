@@ -5,17 +5,17 @@ import scala.math.BigDecimal
 
 /** A class to help find N permutations of exponentiation.
  * 
- * @constructor 	: create a new object to find roots for a specific exponent.
- * @param 			: exponent is the power the values are raised to.
- * @param 			: rootFunction is the function used to calculate the root.
+ * @constructor : create a new object to find roots for a specific exponent.
+ * @param : exponent is the power the values are raised to.
+ * @param : rootFunction is the function used to calculate the root.
  */
 class Root(val exponent: Int, val rootFunction: Double => Double) {
   /** finds all of the permutations of the base to the exponent power value that result in whole number roots.
    * 
-   * @param			: base is the number used to calculate all permutations.
-   * @return		: List[Int] of whole number roots.
-   * @exceptions	: None
-   * @sideEffects	: None
+   * @param : base is the number used to calculate all permutations.
+   * @return : List[Int] of whole number roots.
+   * @exceptions : None
+   * @sideEffects : None
    */
   def findAllRootPermutations(base: Int) = {
     val result = HashMap[Int, Int]()
@@ -39,15 +39,15 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
   /** finds the smallest root which has N permutations of the exponentiation whose root 
    *  	results in whole numbers.
    * 
-   * @param			: permutationsNeeded is how many permutations are needed.
-   * @param			: exactMatch if true then the function will only return if permutations
+   * @param : permutationsNeeded is how many permutations are needed.
+   * @param	 : exactMatch if true then the function will only return if permutations
    * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
-   * @param			: startingValue to start checking from.
-   * @param			: maxIterations to check.
-   * @return		: Option[List[Int]] if conditions were satisfied before maxIterations were exceeded
+   * @param	 : startingValue to start checking from.
+   * @param : maxIterations to check.
+   * @return : Option[List[Int]] if conditions were satisfied before maxIterations were exceeded
    * 	then a List[Int] is returned or else None
-   * @exceptions	: None
-   * @sideEffects	: None
+   * @exceptions : None
+   * @sideEffects : None
    */
   def findSmallestRootWithNPermutations(permutationsNeeded: Int, exactMatch: Boolean, startingValue: Int = 1, maxIterations: Int = 10000): Option[Array[Int]] = {
 	def compareEquals(testValue: Int) = permutationsNeeded == testValue
@@ -74,15 +74,15 @@ class Root(val exponent: Int, val rootFunction: Double => Double) {
   /** finds the smallest exponentiation which has N permutations of the exponentiation whose root 
    *  	results in whole numbers.
    * 
-   * @param			: permutationsNeeded is how many permutations are needed.
-   * @param			: exactMatch if true then the function will only return if permutations
+   * @param : permutationsNeeded is how many permutations are needed.
+   * @param	 : exactMatch if true then the function will only return if permutations
    * 	found length is exactly permtuationsNeed, otherwise it is treated as a minimum lower bound.
-   * @param			: startingValue to start checking from.
-   * @param			: maxIterations to check.
-   * @return		: Option[BigInt] if conditions were satisfied before maxIterations were exceeded
+   * @param	 : startingValue to start checking from.
+   * @param	 : maxIterations to check.
+   * @return : Option[BigInt] if conditions were satisfied before maxIterations were exceeded
    * 	then a BigInt is returned or else None
-   * @exceptions	: None
-   * @sideEffects	: None
+   * @exceptions : None
+   * @sideEffects : None
    */
   def findSmallestValueWithNPermutations(permutationsNeeded: Int, exactMatch: Boolean, startingValue: Int = 1, maxIterations: Int = 10000): Option[BigInt] = {
     findSmallestRootWithNPermutations(permutationsNeeded, exactMatch, startingValue, maxIterations) match {
